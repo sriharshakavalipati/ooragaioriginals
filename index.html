@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ooragai Originals – Andhra Pickles & Podis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Lora for headings, Nunito Sans for nav/body -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #21243d;
+      --terracotta: #c65937;
+      --accent-orange: #f89a42;
+      --ivory: #f9f6f1;
+      --green: #426953;
+      --white-panel: #fffdfaef;
+    }
+    body {
+      font-family: 'Nunito Sans', Arial, sans-serif;
+      font-weight: 400;
+      background: linear-gradient(135deg, var(--ivory) 0%, #f2e6d7 100%);
+      color: var(--navy);
+    }
+    .navbar {
+      background: var(--white-panel)!important;
+      box-shadow: 0 2px 24px #dad5ca22;
+    }
+    .navbar-brand {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: var(--terracotta)!important;
+      display: flex; align-items: center; gap: 13px;
+      letter-spacing:1.1px;
+    }
+    .navbar-brand img { height: 48px; border-radius:8px; }
+    .nav-premium .nav-link {
+      font-family: 'Nunito Sans', sans-serif;
+      font-weight: 600;
+      color: var(--green)!important;
+      font-size: 1.1rem;
+      display: flex; align-items: center; gap: 6px;
+      padding-right: 16px;
+      letter-spacing:.8px;
+      border-radius: 22px;
+      padding: 0.4rem 1rem 0.4rem 0.6rem;
+      transition: background .14s, color .14s;
+    }
+    .nav-premium .nav-link:hover {
+      color: var(--terracotta)!important;
+      background: #f7ece1;
+    }
+    .nav-premium img { width: 21px; height: 21px; }
+    .hero-section {
+      min-height: 92vh; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(110deg, var(--ivory) 62%, #ffe5d0 100%);
+      border-bottom-left-radius: 50px 28px; border-bottom-right-radius: 32px 10px;
+      padding: 0 0 3rem;
+      position: relative; overflow: hidden;
+      box-shadow: 0 18px 62px #e3c4b240;
+    }
+    .hero-anim-bg {
+      position: absolute; top:0; left:0; width:100%; height:100%; z-index:0;
+      background: url('https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+      opacity:0.19; filter: blur(4px) grayscale(6%);
+      animation: bgFade 8s alternate infinite;
+    }
+    @keyframes bgFade { from { opacity:.15; } to { opacity:.24; } }
+    .glassy-card {
+      background: var(--white-panel);
+      border-radius: 1.45rem; box-shadow: 0 9px 32px #c6593710;
+      max-width: 650px; margin: 0 auto 0 auto; padding: 2.3rem 1.7rem 2.2rem 1.7rem;
+      text-align: center; z-index: 1; position: relative;
+      border: 1px solid #f5eee6;
+    }
+    .glassy-card h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      color: var(--terracotta);
+      font-size: 3.1rem;
+      letter-spacing:1.3px;
+      margin-bottom: 0.9rem;
+    }
+    .glassy-card p {
+      font-size: 1.27rem; color: var(--green); opacity: 0.84; margin-bottom: 2.3rem;
+      font-weight: 400;
+    }
+    .premium-btn {
+      background: linear-gradient(90deg, var(--terracotta) 0%, var(--accent-orange) 100%);
+      color:#fff; border: none; padding: 0.82rem 2.5rem;
+      font-size: 1.13rem; border-radius: 42px;
+      letter-spacing: 1.2px; font-family: 'Nunito Sans',sans-serif; font-weight:600;
+      box-shadow: 0 2px 12px 0 #c659370a;
+      transition: 0.13s all;
+    }
+    .premium-btn:hover {
+      background: linear-gradient(90deg, var(--accent-orange) 0%, var(--terracotta) 100%);
+      color: var(--terracotta);
+    }
+    /* Brand values row */
+    .brand-values { max-width: 1040px; margin: -3.5rem auto 3.5rem auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .brand-value-block {
+      background: #fffefaec; border-radius: 1.2rem; padding: 1.5rem 1.1rem 1.1rem 1.1rem;
+      min-width:158px; text-align:center;
+      box-shadow: 0 7px 20px 0 #bda16b12; border: 1.1px solid #f6eddc;
+      transition: box-shadow 0.16s;
+    }
+    .brand-value-block:hover {
+      box-shadow: 0 4px 16px 0 #c6593726; background: #fcf5e5;
+    }
+    .brand-value-block svg { width: 30px; height: 30px; margin-bottom:8px; }
+    .brand-value-title {
+      font-family: 'Lora', serif; font-size: 1.07rem; font-weight: 600;
+      letter-spacing:.3px; color: var(--terracotta); margin-bottom:0.18rem;
+    }
+    .brand-value-desc {color: var(--green); font-size:0.93rem; opacity: 0.82; font-weight:400;}
+    .premium-products { max-width: 1160px; margin:0 auto 4rem auto; }
+    .card-premium {
+      border: none; border-radius: 1.3rem; box-shadow: 0 2px 20px #c1934621;
+      background:#fffdfaee; transition: box-shadow 0.16s;
+      overflow: hidden; margin-bottom: 2.2rem;
+    }
+    .card-premium:hover {
+      box-shadow: 0 6px 22px #c6593740; transform: translateY(-2px) scale(1.012);
+    }
+    .card-premium img { border-radius: 1rem 1rem 0 0; min-height:160px; object-fit:cover;}
+    .card-premium .card-body { text-align:center; padding: 1.1rem 1rem .6rem 1rem;}
+    .card-premium h5 {
+      font-family: 'Lora', serif;
+      font-size:1.15rem;
+      font-weight: 600; color: var(--terracotta); letter-spacing:.14px;
+    }
+    .card-premium p { color: var(--green); font-size:0.98rem; min-height:38px; font-weight:400;}
+    .card-premium .btn {
+      background: linear-gradient(90deg, var(--terracotta), var(--accent-orange) 80%);
+      color: #fff; font-weight:600; border-radius:30px; border:none; margin-bottom:6px;
+      transition: background .15s, color .15s; font-size:0.98rem; letter-spacing:1.04px;
+    }
+    .card-premium .btn:hover { background: linear-gradient(90deg, var(--accent-orange), var(--terracotta) 80%); color: var(--terracotta);}
+    .section-title {
+      font-family: 'Lora', serif; font-weight: 700; color: var(--terracotta);
+      letter-spacing:.92px; font-size:1.49rem; margin:2.5rem 0 .4rem 0;
+    }
+    .footer { background: #f0ede6; color: #60584f; font-size:0.97rem; border-top: 1px solid #e8dbb4; margin-top: 2.5em;}
+    .footer-icons a {display:inline-block; margin-right:8px;}
+    .footer-icons img { width: 17px; height:17px; filter: drop-shadow(0 1px 2px #bf742333);}
+    .footer .small {color:#b09777; opacity:.99;}
+    @media (max-width:700px){
+      .glassy-card h1 { font-size:1.3rem;}
+      .brand-values { gap:.49rem;}
+    }
+  </style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="https://ooragaioriginals.com/cdn/shop/files/logo_1.png?v=1746641522&width=135" alt="Ooragai Originals Logo">
+      Ooragai Originals
+    </a>
+    <ul class="nav nav-premium ms-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#pickles"><img src="https://openmoji.org/data/color/svg/1F952.svg" alt="Pickles">Pickles</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#podis"><img src="https://openmoji.org/data/color/svg/E217.svg" alt="Podis">Podis</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#diy"><img src="https://openmoji.org/data/color/svg/1F9EA.svg" alt="DIY Kits">DIY Kits</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#community"><img src="https://openmoji.org/data/color/svg/1F46A.svg" alt="Community">Community</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact"><img src="https://openmoji.org/data/color/svg/1F4E7.svg" alt="Contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section container-fluid position-relative">
+  <div class="hero-anim-bg"></div>
+  <div class="glassy-card position-relative z-2">
+    <h1>Andhra Pickles & Podis</h1>
+    <p>
+      Micro-batch delicacies hand-crafted from Grandma’s legacy.<br>
+      Authentic, pure, and luxurious—<b>the taste of Andhra redefined.</b>
+    </p>
+    <a href="#collection" class="premium-btn shadow-sm">Shop Now</a>
+  </div>
+</section>
+
+<!-- Brand Value Propositions -->
+<div class="brand-values mt-5">
+  <div class="brand-value-block">
+    <svg fill="#c65937" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#e5b381" stroke-width="2" fill="#fff0e3"/></svg>
+    <div class="brand-value-title">Micro-Batch</div>
+    <div class="brand-value-desc">Small lot production for supreme freshness & taste.</div>
+  </div>
+  <div class="brand-value-block">
+    <svg fill="#5F634F" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="4" fill="#d5d8c7"/></svg>
+    <div class="brand-value-title">Heritage</div>
+    <div class="brand-value-desc">Timeless Andhra recipes from our family to yours.</div>
+  </div>
+  <div class="brand-value-block">
+    <svg fill="#f89a42" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#f89a42" stroke-width="4"/></svg>
+    <div class="brand-value-title">0% Preservatives</div>
+    <div class="brand-value-desc">Pure ingredients only—safe, natural, homemade taste.</div>
+  </div>
+  <div class="brand-value-block">
+    <svg fill="#bda16b" viewBox="0 0 24 24"><polygon points="6,22 12,2 18,22" fill="#ebc69b"/></svg>
+    <div class="brand-value-title">Innovative Kits</div>
+    <div class="brand-value-desc">DIY experiences — customize your flavor, your oil, your way.</div>
+  </div>
+  <div class="brand-value-block">
+    <svg fill="#426953" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="6" fill="#cee2d6"/></svg>
+    <div class="brand-value-title">Empowering Women</div>
+    <div class="brand-value-desc">Reviving rural artistry, creating livelihoods, honoring women.</div>
+  </div>
+</div>
+
+<!-- Product Collection -->
+<section class="container premium-products" id="collection">
+  <div class="section-title">Our Signature Collection</div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card card-premium" id="pickles">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80" alt="Andhra Mango Pickle" />
+        <div class="card-body">
+          <h5>Andhra Mango Pickle</h5>
+          <p>Crisp, spicy, oil-rich – tradition's favorite with a modern, preservative-free touch.</p>
+          <button class="btn btn-sm">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-premium">
+        <img src="https://images.unsplash.com/photo-1603079842464-ea8d96bb15fd?auto=format&fit=crop&w=500&q=80" alt="Classic Lemon Pickle" />
+        <div class="card-body">
+          <h5>Classic Lemon Pickle</h5>
+          <p>Sun-cured, intense, the boldest tang you'll ever taste. Sun in a bottle.</p>
+          <button class="btn btn-sm">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" id="podis">
+      <div class="card card-premium">
+        <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=500&q=80" alt="Fiery Andhra Chilli Pickle" />
+        <div class="card-body">
+          <h5>Fiery Andhra Chilli Pickle</h5>
+          <p>For the brave—explosive, sun-soaked whole chillies, hand-pounded masala.</p>
+          <button class="btn btn-sm">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <!-- Add more podi/DIY/etc. cards here -->
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer container-fluid py-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8 mb-3 mb-md-0 footer-icons">
+        <a href="https://instagram.com/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg" alt="Instagram"/></a>
+        <a href="https://facebook.com/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg" alt="Facebook"/></a>
+        <a href="https://wa.me/919000000000" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp"/></a>
+        <span class="ms-3 small">No Artificial Preservatives. Always Homemade. Crafted in Andhra Pradesh.</span>
+      </div>
+      <div class="col-md-4 text-end small">&copy; 2025 Ooragai Originals. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
